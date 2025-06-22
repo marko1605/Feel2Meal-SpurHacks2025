@@ -9,6 +9,6 @@ app = Flask(__name__)
 @app.route('/backend', methods = ['POST'])
 def foo():
 
-    ls = [request.get_json()["people"]]
+    ls = [request.get_json()["userKey"]]
     return {"myResponse": getRecommendedRestaurants(ls,5,getNearbyPlaces())}
 
