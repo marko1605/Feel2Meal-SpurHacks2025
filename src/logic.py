@@ -1,6 +1,10 @@
 import requests
 import json
 
+from dotenv import load_dotenv
+from os import environ
+load_dotenv()
+
 
 def getNearbyPlaces(lat = 43.51538583788745, long = -80.51351417895715, radius = 2000):
 
@@ -8,7 +12,7 @@ def getNearbyPlaces(lat = 43.51538583788745, long = -80.51351417895715, radius =
 
     headers = {
         "Content-Type": "application/json",
-        "X-Goog-Api-Key": "AIzaSyA141HUOTaDYWM4WTxGpSc6f7U21eIsQR8",  # Replace YOUR_API_KEY with your actual API key
+        "X-Goog-Api-Key": environ["USER_API_KEY"],
         "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress",
     }
 
@@ -42,4 +46,4 @@ def getNearbyPlaces(lat = 43.51538583788745, long = -80.51351417895715, radius =
         print(response.text)
 
 # nearby = getNearbyPlaces(43.51538583788745, -80.51351417895715, 2000)
-# print(nearby)
+# print([key["name"] for key in nearby])
