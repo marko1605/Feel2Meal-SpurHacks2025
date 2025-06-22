@@ -8,7 +8,6 @@ load_dotenv()
 def test():
 
     url = "http://127.0.0.1:5000/backend"
-    print(environ["USER_API_KEY"])
     headers = {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": environ["USER_API_KEY"],  # Replace YOUR_API_KEY with your actual API key
